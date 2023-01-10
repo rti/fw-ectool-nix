@@ -18,8 +18,9 @@
           pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
         in
         {
-          packages = {
+          packages = rec {
             framework-ectool = pkgs.framework-ectool;
+            default = framework-ectool;
           };
         })
     );
