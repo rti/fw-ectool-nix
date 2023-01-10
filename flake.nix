@@ -1,15 +1,24 @@
 {
   description = "Embedded Controller command-line tool for the Framework laptop";
 
-  inputs.nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    framework-ectool = {
+      url = "github:DHowett/framework-ec";
+      flake = false;
+    };
+  };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, framework-ectool }:
     {
       overlays.default =
         (
           final: prev: {
-            framework-ectool = prev.callPackage ./default.nix { pkgs = prev; };
+            framework-ectool = prev.callPackage ./default.nix {
+              pkgs = prev;
+              inherit framework-ectool;
+            };
           }
         );
     } // (

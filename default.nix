@@ -1,19 +1,11 @@
-{ pkgs }:
+{ pkgs, framework-ectool }:
 
-let
-  rev = "54c140399bbc3e6a3dce6c9f842727c4128367be";
-in
 with pkgs;
 stdenv.mkDerivation rec {
   pname = "framework-ectool";
   version = "54c1403";
 
-  src = fetchFromGitHub {
-    owner = "DHowett";
-    repo = "framework-ec";
-    rev = rev;
-    sha256 = "sha256-2teJFz4zcA+USpbVPXMEIHLdmMLem8ik7YrmrSxr/n0";
-  };
+  src = framework-ectool;
 
   buildInputs = [
     libftdi

@@ -15,6 +15,22 @@
         "type": "github"
       }
     },
+    "framework-ectool": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670126413,
+        "narHash": "sha256-2teJFz4zcA+USpbVPXMEIHLdmMLem8ik7YrmrSxr/n0=",
+        "owner": "DHowett",
+        "repo": "framework-ec",
+        "rev": "54c140399bbc3e6a3dce6c9f842727c4128367be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DHowett",
+        "repo": "framework-ec",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1672219412,
@@ -33,6 +49,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "framework-ectool": "framework-ectool",
         "nixpkgs": "nixpkgs"
       }
     }
